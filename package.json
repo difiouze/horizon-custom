@@ -1,0 +1,12 @@
+{
+  "name": "horizon-custom",
+  "private": true,
+  "scripts": {
+    "theme:pull": "shopify theme pull",
+    "theme:push": "shopify theme push",
+    "theme:dev": "shopify theme dev",
+    "theme:check": "shopify theme check",
+    "theme:open": "shopify theme open",
+    "theme:list": "shopify theme list"
+  }
+}
