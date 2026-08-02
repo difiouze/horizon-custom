@@ -1,0 +1,28 @@
+<div>
+    {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+    "name": "Section Custom Block",
+    "blocks": [
+        {
+            "type": "_test-block"
+        },
+        {
+            "type": "image"
+        },
+    ],
+    "presets": [
+        {
+            "name": "Section Custom Block",
+            "category": "Custom Sections",
+            "blocks": [
+                {
+                    "type": "_test-block"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

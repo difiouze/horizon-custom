@@ -282,6 +282,15 @@
   defer="defer"
 ></script>
 
+
+{% comment %} CUSTOM SCRIPTS {% endcomment %}
+
+<script
+  src="{{ 'web-component-test.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
 <script>
   const Theme = {
     translations: {

@@ -1,0 +1,88 @@
+<web-component-test text="{{ section.settings.text }}">
+
+    <button
+        ref="button"
+        on:click="/sayHello">
+        Hello
+    </button>
+    <button on:click="/handleClick">Click Me</button>
+    <ul>
+      <li ref='listItem[]'>1</li>
+      <li ref='listItem[]'>2</li>
+      <li ref='listItem[]'>3</li>
+      <li ref='listItem[]'>4</li>
+    </ul>
+
+</web-component-test>
+
+
+{% schema %}
+{
+  "name": "Web component test",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:settings.custom_liquid",
+      "info": "t:info.custom_liquid"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Web component test",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

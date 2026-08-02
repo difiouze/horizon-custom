@@ -1,0 +1,27 @@
+<div {{ block.shopify_attributes }}>
+    {{ block.settings.test_block }}
+    {% content_for 'blocks' %}
+</div>
+
+
+{% schema %}
+{
+    "name": "Test Block",
+    "blocks": [{
+        "type": "_test-block"
+    }
+],
+    "settings": [
+        {
+            "type": "text",
+            "label": "Test Block",
+            "id": "test_block"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Test Block"
+        }
+    ]
+}
+{% endschema %}
