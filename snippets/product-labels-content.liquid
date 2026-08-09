@@ -1,0 +1,18 @@
+{%- doc -%}
+  Product labels — rendering.
+
+  Renders one badge div per label string, reusing the shared badge classes
+  from snippets/product-badges-styles.liquid so labels visually match the
+  Sale/Sold out badges (same shape, position system, typography).
+
+  @param {object} labels - Array of label display strings (required).
+
+  @example
+  {% render 'product-labels-content', labels: labels %}
+{%- enddoc -%}
+
+{%- for label in labels -%}
+  <div class="product-badges__badge product-badges__badge--rectangle color-custom-badge-label">
+    {{ label | escape }}
+  </div>
+{%- endfor -%}

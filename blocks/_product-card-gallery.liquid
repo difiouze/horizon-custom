@@ -7,6 +7,7 @@
       style="
         --badge-border-radius: {{ settings.badge_corner_radius }}px;
         --badge-font-family: var(--font-{{ settings.badge_font_family }}--family); --badge-font-weight: var(--font-{{ settings.badge_font_family }}--weight); --badge-text-transform: {{ settings.badge_text_transform }};
+        --badge-align: {% if settings.badge_position == 'top-right' %}flex-end{% else %}flex-start{% endif %};
       "
     >
       {%- if product.available == false or product.compare_at_price > product.price -%}
@@ -23,6 +24,7 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {%- render 'product-labels', product: product -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}
