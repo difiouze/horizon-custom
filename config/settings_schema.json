@@ -1279,6 +1279,38 @@
           }
         ],
         "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "t:content.product_labels"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_product_labels",
+        "label": "t:settings.enable_product_labels",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "product_labels_metafield",
+        "label": "t:settings.product_labels_metafield",
+        "info": "t:settings.product_labels_metafield_info",
+        "default": "custom.labels",
+        "visible_if": "{{ settings.enable_product_labels == true }}"
+      },
+      {
+        "type": "color",
+        "id": "badge_label_background_color",
+        "label": "t:settings.badge_label_background_color",
+        "default": "{{ settings.color_palette.foreground }}",
+        "visible_if": "{{ settings.enable_product_labels == true }}"
+      },
+      {
+        "type": "color",
+        "id": "badge_label_text_color",
+        "label": "t:settings.badge_label_text_color",
+        "default": "{{ settings.color_palette.background }}",
+        "visible_if": "{{ settings.enable_product_labels == true }}"
       }
     ]
   },

@@ -1,0 +1,35 @@
+{%- doc -%}
+  Product labels — business logic.
+
+  Reads the configurable product metafield (list.metaobject_reference) that
+  holds label metaobjects, and renders one badge per label by delegating to
+  'product-labels-content'. Renders nothing when the feature is disabled via
+  settings.enable_product_labels, the metafield setting is misconfigured, the
+  product has no value for that metafield, or the resolved list is empty.
+
+  @param {product} product - The product to read labels from.
+
+  @example
+  {% render 'product-labels', product: product %}
+{%- enddoc -%}
+
+{% liquid
+  assign product = product | default: empty
+  unless product != empty and settings.enable_product_labels
+    break
+  endunless
+
+  assign metafield_reference = settings.product_labels_metafield
+  assign metafield_namespace = metafield_reference | split: '.' | first
+  assign metafield_key = metafield_reference | split: '.' | last
+  unless metafield_namespace != blank and metafield_key != blank and metafield_namespace != metafield_key
+    break
+  endunless
+
+  assign label_metaobjects = product.metafields[metafield_namespace][metafield_key].value
+  assign labels = label_metaobjects | map: 'name' | map: 'value' | compact
+%}
+
+{%- if labels.size > 0 -%}
+  {%- render 'product-labels-content', labels: labels -%}
+{%- endif -%}
