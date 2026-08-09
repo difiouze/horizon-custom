@@ -119,18 +119,4 @@
   </div>
 </product-card>
 
-{% stylesheet %}
-  .product-card__placeholder-image svg {
-    height: 100%;
-  }
-
-  .product-card__content slideshow-component {
-    --cursor: pointer;
-  }
-
-  @media screen and (max-width: 749px) {
-    .product-card slideshow-arrows .slideshow-control {
-      display: none;
-    }
-  }
-{% endstylesheet %}
+{% render 'product-card-styles' %}
