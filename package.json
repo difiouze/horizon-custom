@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "theme:pull": "shopify theme pull",
+    "theme:pull:config": "shopify theme pull --live --only \"config/*\"",
     "theme:push": "shopify theme push",
     "theme:dev": "shopify theme dev",
     "theme:check": "shopify theme check",
